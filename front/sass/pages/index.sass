@@ -78,15 +78,6 @@ body.dark
   background: $black
   .wrapper
     background: $black
-  .info
-    &__item
-      background: $dark-grey
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
-  .rules
-    &__summary
-      background: $dark-grey
-    &__text
-      background: $dark-grey
 
 body
   &.en
@@ -119,8 +110,6 @@ body
         background-position: 50% 0
       @media screen and (max-width: 1220px)
         background-position: 0 0
-      @media screen and (max-width: 1150px)
-        background-position: -20% 0
       @media screen and (max-width: 1100px)
         background: url("../img/pers-tab.jpg") no-repeat 100% 0/cover
       @media screen and (max-width: 950px)
@@ -134,17 +123,19 @@ body
       @media screen and (max-width: 600px) and (max-height: 450px) and (orientation: landscape)
         background-position: 100% 0
       &__container
-        &::before
-          content: ""
-          display: block
-          position: absolute
-          bottom: -40px
-          left: 0
-          width: 80%
-          height: 550px
-          background: linear-gradient(270deg, rgba(2, 2, 66, 0.00) 0%, #020242 100%)
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            content: none
+        @media screen and (max-width: 1100px)
+          &::before
+            content: ""
+            display: block
+            position: absolute
+            bottom: -40px
+            left: 0
+            width: 80%
+            opacity: .8
+            height: 550px
+            background: linear-gradient(270deg, rgba(2, 2, 66, 0.00) 0%, #020242 100%)
+            @media screen and (max-width: 600px) and (orientation: portrait)
+              content: none
       &__info
         &-bottom
           color: $white
@@ -171,20 +162,20 @@ body
         background: url("../img/pers-landscape.jpg") no-repeat 0 0/cover
       @media screen and (max-width: 600px) and (max-height: 450px) and (orientation: landscape)
         background-position: 100% 0
-      &__container
-        &::before
-          content: ""
-          display: block
-          position: absolute
-          bottom: -40px
-          left: 15px
-          width: 80%
-          height: 550px
-          background: linear-gradient(270deg, rgba(0, 0, 32, 0.00) 0%, rgba(4, 6, 19, 0.60) 100%)
-          @media screen and (max-width: 1300px)
-            left: 0
-          @media screen and (max-width: 600px) and (orientation: portrait)
-            content: none
+      //&__container
+      //  &::before
+      //    content: ""
+      //    display: block
+      //    position: absolute
+      //    bottom: -40px
+      //    left: 15px
+      //    width: 80%
+      //    height: 550px
+      //    background: linear-gradient(270deg, rgba(0, 0, 32, 0.00) 0%, rgba(4, 6, 19, 0.60) 100%)
+      //    @media screen and (max-width: 1300px)
+      //      left: 0
+      //    @media screen and (max-width: 600px) and (orientation: portrait)
+      //      content: none
 .banner
   overflow: hidden
   padding: 166px 0 40px 0
@@ -222,6 +213,7 @@ body
       font-size: 55px
       line-height: 38px
       letter-spacing: 0.01em
+      text-shadow: 0px 2.914px 0px #000
       text-transform: uppercase
       color: $gray
     &-wrap
@@ -308,229 +300,3 @@ body
         color: rgba(255, 255, 255, 0.80)
         &:hover
           text-decoration: none
-.info
-  margin-top: -65px
-  margin-bottom: 60px
-  position: relative
-  z-index: 3
-  &__container
-    max-width: 1270px
-    margin: 0 auto
-    padding: 0 20px
-  &__list
-    display: grid
-    grid-template-columns: calc(50% - 15px) calc(50% - 15px)
-    gap: 30px
-  &__item
-    display: flex
-    flex-direction: column
-    padding: 60px 80px 50px 50px
-    &-title
-      font-family: $font-suisse-med
-      text-transform: uppercase
-      font-size: 47px
-      line-height: 40px
-      color: $grey
-      margin: 0 0 25px 0
-    &-text
-      flex: 1 1 auto
-      font-family: $font-suisse-reg
-      font-size: 18px
-      line-height: 28px
-      letter-spacing: 0.02em
-      color: $grey
-      margin: 0 0 40px 0
-    &-link
-      align-self: flex-start
-      font-family: $font-suisse-semb
-      display: inline-block
-      letter-spacing: 0.08em
-      text-transform: uppercase
-      font-size: 20px
-      line-height: 26px
-      color: $blue
-      padding: 18px 33px 16px
-      background: $green
-      border-radius: 4px
-      transition: background-color .3s ease
-      &:hover
-        background: $btn-green-hover-bg
-
-
-.videos
-  background: url("../img/slider-bg.png") no-repeat 0 0/cover
-  @media screen and (max-width: 1100px)
-    background: url("../img/slider-bg-tab.png") no-repeat 100% 0/cover
-  @media screen and (max-width: 600px)
-    background: url("../img/slider-bg-mob.png") no-repeat 100% -100%/cover
-    background-size: 450px 400px
-
-  &__container
-    position: relative
-  &__title
-    font-family: $font-suisse-med
-    font-size: 50px
-    color: $white
-    text-align: center
-    span
-      font-family: $font-wulkan-display
-
-  &__slider
-    position: relative
-    min-height: 520px
-    display: flex
-    justify-content: center
-    align-items: center
-    //overflow: hidden
-    transition: 0.5s ease
-  &__control
-    z-index: 15
-    display: flex
-    justify-content: space-between
-    pointer-events: none
-    position: absolute
-    width: 100%
-    top: 50%
-    left: 0
-    transform: translateY(-50%)
-    &-btn
-      pointer-events: initial
-      cursor: pointer
-      width: 66px
-      height: 66px
-      background: url("../img/btn-slider.png") no-repeat 0 0/contain
-      transition: opacity .3s ease
-      &:hover
-        opacity: 0.8
-      &.disabled
-        opacity: 0.7
-        pointer-events: none
-    &-left
-      transform: scale(-1,1)
-  &__item
-    //pointer-events: none
-    transform-origin: center
-    padding: 0
-    position: relative
-    height: 387px
-    max-height: 387px
-    min-height: 387px
-    margin: 0px -342px
-    transition: .5s ease
-    min-width: 683px
-    max-width: 683px
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: flex-end
-    border-radius: 8px
-    border: 4px solid $slide-border
-    overflow: hidden
-    img
-      width: 100%
-    filter: drop-shadow(0px 0px 25.3px rgba(0, 255, 195, 0.30))
-    &.left-slide,
-    &.right-slide
-      z-index: 2 !important
-      opacity: .4
-      .videoPlayBtn
-        opacity: 0
-
-
-
-
-
-
-.rules
-  color: $grey
-  padding: 0 0 100px 0
-  &__details[open] .rules__summary::before
-    transform: translateY(-50%) rotate(0deg)
-  &__summary
-    position: relative
-    font-family: $font-suisse-semb
-    font-size: 22px
-    line-height: 40px
-    letter-spacing: 0.05em
-    text-transform: uppercase
-    padding: 22px 65px 20px 35px
-    cursor: pointer
-    list-style: none
-    border-radius: 4px
-    color: $grey
-    br
-      display: none
-    @media screen and (max-width: 870px) and (min-width: 600px)
-      br
-        display: block
-    &::before
-      content: ''
-      position: absolute
-      width: 20px
-      height: 10px
-      top: 50%
-      right: 34px
-      transform: translateY(-50%) rotate(180deg)
-      background: url("../img/arrow.svg") no-repeat 0 0/contain
-  &__text
-    padding: 30px 35px
-    border-radius: 4px
-    margin-top: 10px
-    max-height: 450px
-    overflow-y: scroll
-  &__item
-    &-title
-      font-family: $font-suisse-reg
-      color: $grey
-      font-size: 16px
-      line-height: 28px
-      letter-spacing: 0.02em
-      margin: 0 0 25px 0
-    &-list
-      >li
-        margin: 0 0 25px 0
-      li
-        font-family: $font-suisse-reg
-        color: $grey
-        font-size: 16px
-        line-height: 28px
-        letter-spacing: 0.02em
-        ul
-          margin-top: 25px
-          li
-            font-family: $font-suisse-reg
-            margin: 0 0 25px 0
-            p
-              font-family: $font-suisse-reg
-            ul
-              margin-top: 25px
-              li
-                font-family: $font-suisse-reg
-                margin: 25px 0 25px 0
-
-.hidden
-  display: none
-  z-index: 0
-
-.videoIframe
-  min-width: 100%
-  min-height: 100%
-  border: 0
-  //pointer-events: initial
-  z-index: 0
-  position: absolute
-  top: 0
-  left: 0
-  display: none
-
-.videoPlayBtn
-  position: absolute
-  left: 50%
-  top: 50%
-  transform: translate(-50%, -50%)
-  width: 70px
-  height: 70px
-  cursor: pointer
-  z-index: 11
-  background: url("../img/playBtn.svg") no-repeat 0 0/contain
-  //pointer-events: initial
